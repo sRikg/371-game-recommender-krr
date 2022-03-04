@@ -1,0 +1,113 @@
+(in-microtheory GameRecommenderMT)
+
+;;; Getting the game attributes
+(<== (get_attributes ?game ?developer)
+    (gameDeveloper ?game ?developer))
+
+(<== (get_attributes ?game ?publisher)
+    (gamePublisher ?game ?publisher))
+
+(<== (get_attributes ?game ?positiveratings)
+    (gamePositiveRatings ?game ?positiveratings))
+
+(<== (get_attributes ?game ?negativeratings)
+    (gameNegativeRatings ?game ?negativeratings))
+
+(<== (get_attributes ?game ?price)
+    (gamePrice ?game ?price))
+
+(<== (get_attributes ?game ?discount)
+    (gameDiscount ?game ?discount))
+
+(<== (get_attributes ?game ?ccu)
+    (gameConcurrentlyConnectedUsers ?game ?ccu))
+
+(<== (get_attributes ?game ?language)
+    (gameLanguage ?game ?language))
+
+(<== (get_attributes ?game ?genre)
+    (gameGenre ?game ?genre))
+
+
+
+;;; Creating common and similar attributes
+(<== (commonDeveloper ?game1 ?game2 ?developer)
+    (gameDeveloper ?game1 ?developer)
+    (gameDeveloper ?game2 ?developer))
+
+(<== (commonPublisher ?game1 ?game2 ?publisher)
+    (gamePublisher ?game1 ?publisher)
+    (gamePublisher ?game2 ?publisher))
+
+(<== (similarPositiveRatings ?game1 ?game2)
+    (gamePositiveRatings ?game1 ?positiveratings1)
+    (gamePositiveRatings ?game2 ?positiveratings2)
+    (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?positiveratings1 ?positiveratings2) ?positiveratings1)) 0.15))
+
+(<== (similarNegativeRatings ?game1 ?game2)
+    (gameNegativeRatings ?game1 ?negativeratings1)
+    (gameNegativeRatings ?game2 ?negativeratings2)
+    (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?negativeratings1 ?negativeratings2) ?negativeratings1)) 0.15))
+
+(<== (similarPrice ?game1 ?game2)
+    (gamePrice ?game1 ?price1)
+    (gamePrice ?game2 ?price2)
+    (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?price1 ?price2) ?price1)) 0.15))
+
+(<== (similarDiscount ?game1 ?game2)
+    (gameDiscount ?game1 ?discount1)
+    (gameDiscount ?game2 ?discount2)
+    (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?discount1 ?discount2) ?discount1)) 0.15))
+
+(<== (similarConcurrentlyConnectedUsers ?game1 ?game2)
+    (gameConcurrentlyConnectedUsers ?game1 ?ccu1)
+    (gameConcurrentlyConnectedUsers ?game2 ?ccu2)
+    (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?ccu1 ?ccu2) ?ccu1)) 0.15))
+
+(<== (commonLanguage ?game1 ?game2 ?language)
+    (gameLanguage ?game1 ?language)
+    (gameLanguage ?game2 ?language))
+
+(<== (commonGenre ?game1 ?game2 ?genre)
+    (gameGenre ?game1 ?genre)
+    (gameGenre ?game2 ?genre))
+
+
+;;; Horn clauses viability
+(<== (gamesSharingAttribute ?game ?game1 ?rel1 ?attribute1)
+    (?rel1 ?game1 ?game ?attribute1))
+
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game1 ?rel1 ?attribute1))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game2 ?rel2 ?attribute2))
+
+(<== (allGamesSharingAttribute ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingAttribute ?game ?game3 ?rel3 ?attribute3))
+
+
+(<== (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2)
+    (?rel1 ?game1 ?game ?attribute1)
+    (?rel2 ?game2 ?game ?attribute2))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game3 ?rel3 ?attribute3))
+
+(<== (allGamesSharingTwoAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (gamesSharingTwoAttributes ?game ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3))
+
+
+(<== (gamesSharingAllAttributes ?game ?game1 ?rel1 ?attribute1 ?game2 ?rel2 ?attribute2 ?game3 ?rel3 ?attribute3)
+    (?rel1 ?game1 ?game ?attribute1)
+    (?rel2 ?game2 ?game ?attribute2)
+    (?rel3 ?game3 ?game ?attribute3))
+
+(<== (favoredType ?game1 ?game2 ?game3)
+    (sharedAttributes))
+
+
