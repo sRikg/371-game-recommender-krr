@@ -39,27 +39,27 @@
     (gamePublisher ?game1 ?publisher)
     (gamePublisher ?game2 ?publisher))
 
-(<== (similarPositiveRatings ?game1 ?game2)
+(<== (similarPositiveRatings ?game1 ?game2 ?positiveratings1 ?positiveratings2)
     (gamePositiveRatings ?game1 ?positiveratings1)
     (gamePositiveRatings ?game2 ?positiveratings2)
     (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?positiveratings1 ?positiveratings2) ?positiveratings1)) 0.15))
 
-(<== (similarNegativeRatings ?game1 ?game2)
+(<== (similarNegativeRatings ?game1 ?game2 ?negativeratings1 ?negativeratings2)
     (gameNegativeRatings ?game1 ?negativeratings1)
     (gameNegativeRatings ?game2 ?negativeratings2)
     (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?negativeratings1 ?negativeratings2) ?negativeratings1)) 0.15))
 
-(<== (similarPrice ?game1 ?game2)
+(<== (similarPrice ?game1 ?game2 ?price1 ?price2)
     (gamePrice ?game1 ?price1)
     (gamePrice ?game2 ?price2)
     (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?price1 ?price2) ?price1)) 0.15))
 
-(<== (similarDiscount ?game1 ?game2)
+(<== (similarDiscount ?game1 ?game2 ?discount1 ?discount2)
     (gameDiscount ?game1 ?discount1)
     (gameDiscount ?game2 ?discount2)
     (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?discount1 ?discount2) ?discount1)) 0.15))
 
-(<== (similarConcurrentlyConnectedUsers ?game1 ?game2)
+(<== (similarConcurrentlyConnectedUsers ?game1 ?game2 ?ccu1 ?ccu2)
     (gameConcurrentlyConnectedUsers ?game1 ?ccu1)
     (gameConcurrentlyConnectedUsers ?game2 ?ccu2)
     (lessThanOrEqualTo (AbsoluteValueFn (QuotientFn (DifferenceFn ?ccu1 ?ccu2) ?ccu1)) 0.15))
