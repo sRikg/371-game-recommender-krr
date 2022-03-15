@@ -15,3 +15,4 @@ The ./krf/ directory contains the krf flatfiles which contain representations ab
 Addtional Information
 * The facts files were broken into 7 parts as that facilitated an easier uploading to the NextKB
 * Some of the text and file edits were done manually
+* All intermediatary files can be found in [this directory](https://github.com/srikg-msai22/371-game-recommender-krr/tree/main/misc/)
