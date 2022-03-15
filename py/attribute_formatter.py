@@ -143,6 +143,71 @@ print(min(prs_1))
 print(max(prs_1))
 print(sum(prs_1)/len(prs_1))
 
+developers = [element for element in flat_list if "gameDeveloper" in element]
+
+developers_1 = list()
+for developers_rule in developers:
+  temp = developers_rule.replace(')\n', "").split(" ")
+  developers_1.append(" ".join(item for item in temp[2:len(temp)]))
+
+developers_2 = list(set(developers_1))
+
+developers_2.sort()
+developers_2
+
+developers_3 = list()
+for developer in developers_2:
+  developers_3.append("(isa " + developer + " SoftwareVendor)")
+
+developers_3
+
+developers = [element for element in flat_list if "gameDeveloper" in element]
+
+developers_letters_1 = list()
+for developers_rule in developers:
+  temp = developers_rule.replace(')\n', "").split(" ")
+  temp = list("".join(item for item in temp[2:len(temp)]))
+  for temp1 in temp:
+    developers_letters_1.append(temp1)
+
+developers_letters_2 = list(set(developers_letters_1))
+
+developers_letters_2.sort()
+developers_letters_2
+
+publishers = [element for element in flat_list if "gamePublisher" in element]
+
+publishers_1 = list()
+for publishers_rule in publishers:
+  temp = publishers_rule.replace(')\n', "").split(" ")
+  publishers_1.append(" ".join(item for item in temp[2:len(temp)]))
+
+publishers_2 = list(set(publishers_1))
+
+publishers_2.sort()
+publishers_2
+
+publishers_3 = list()
+for publisher in publishers_2:
+  publishers_3.append("(isa " + publisher + " SoftwareVendor)")
+
+publishers_3
+
+publishers = [element for element in flat_list if "gamePublisher" in element]
+
+publishers_letters_1 = list()
+for publishers_rule in publishers:
+  temp = publishers_rule.replace(')\n', "").split(" ")
+  temp = list("".join(item for item in temp[2:len(temp)]))
+  for temp1 in temp:
+    publishers_letters_1.append(temp1)
+
+publishers_letters_2 = list(set(publishers_letters_1))
+
+publishers_letters_2.sort()
+publishers_letters_2
+
+
 with open('game_facts1.krf') as f1:
   lines_1 = f1.readlines()
 
