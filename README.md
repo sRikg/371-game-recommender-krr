@@ -8,5 +8,10 @@ The ./py/ directory contains the python files pertaining to
 * cleaning and standardizing the attribute values([attribute_formatter.py](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/py/attribute_formatter.py))
 
 The ./krf/ directory contains the krf flatfiles which contain representations about
-* facts(
-** [Facts 1](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts1.krf), [Facts 2](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts2.krf), [Facts 3](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts3.krf), [Facts 4](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts4.krf), [Facts 5](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts5.krf), [Facts 6](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts6.krf), [Facts 7](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts7.krf))
+* Facts Files ([Facts 1](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts1.krf), [Facts 2](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts2.krf), [Facts 3](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts3.krf), [Facts 4](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts4.krf), [Facts 5](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts5.krf), [Facts 6](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts6.krf), [Facts 7](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_facts7.krf))
+* Ontology files ([Base Predicates](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_ontology.krf), [Additional Predicates](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_ontology_additional.krf))
+* The Horn Clauses for the Recommender([Rules](https://github.com/srikg-msai22/371-game-recommender-krr/blob/main/krfs/game_rules.krf))
+
+Addtional Information
+* The facts files were broken into 7 parts as that facilitated an easier uploading to the NextKB
+* Some of the text and file edits were done manually
